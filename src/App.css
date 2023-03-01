@@ -1,0 +1,16 @@
+body {
+	background-color:white;
+ }
+
+ body > .grid {
+	height: 100%;
+}
+
+.column {
+	max-width: 50%;
+}
+
+.ui.form {
+	position: relative;
+	max-width: 100%;
+}
