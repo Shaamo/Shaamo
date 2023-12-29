@@ -16,7 +16,7 @@ steps:
       'run', 'deploy', 'your-node-app',
       '--image', 'gcr.io/$PROJECT_ID/your-node-app',
       '--platform', 'managed',
-      '--region', 'your-region'  # Replace 'your-region' with the desired region, e.g., 'us-central1'
+      '--region', 'us-central1'
     ]
 
 timeout: '600s'
