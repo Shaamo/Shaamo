@@ -15,6 +15,7 @@ steps:
     args: [
       'run', 'deploy', 'your-node-app',
       '--image', 'gcr.io/$PROJECT_ID/your-node-app',
+      '--port','  3000',
       '--platform', 'managed',
       '--region', 'us-central1'
     ]
