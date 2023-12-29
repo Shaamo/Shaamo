@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # Define the command to run your application
-CMD ["npx", "vite","--port 3000"]
+CMD ["npx", "vite","--port","3000","--host","0.0.0.0"]
