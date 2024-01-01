@@ -4,8 +4,8 @@ steps:
     entrypoint: pack
     args:
       - 'build'
-      - '--builder gcr.io/buildpacks/builder:latest'
       - '$_SERVICE_NAME'
+      - '--builder gcr.io/buildpacks/builder:latest'
   
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
