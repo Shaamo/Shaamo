@@ -6,7 +6,8 @@ steps:
     args: ['run', 'build']
 
   - name: 'gcr.io/buildpacks/builder'
-    args: ['build', '-o', 'image.tar', '.']
+    entrypoint: 'pack'
+    args: ['build', '-o', 'image.tar', '--builder', 'gcr.io/buildpacks/builder', '--path', '.']
 
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
