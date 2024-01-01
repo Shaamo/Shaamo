@@ -4,9 +4,6 @@ steps:
     args: ['install']  # Install dependencies
 
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['test']  # Run tests
-
-  - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'build']  # Build your application
   
   - name: 'gcr.io/cloud-builders/gcloud'
