@@ -3,14 +3,19 @@ steps:
     args: ['install']
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'build']
-  # - name: 'gcr.io/cloud-builders/docker'
-  #   args: 
-  #     - 'build'
-  #     - '--tag=gcr.io/$PROJECT_ID/$_SERVICE_NAME'
-  #     - '.'
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['run', 'deploy', '$_SERVICE_NAME', '--source', '.', '--region', 'us-central1','--port','3000','--platform', 'managed']
-    # args: ['run', 'deploy', '$_SERVICE_NAME', '--image', 'gcr.io/$PROJECT_ID/$_SERVICE_NAME', '--region', 'us-central1', '--platform', 'managed']
+    args:
+      - 'run'
+      - 'deploy'
+      - '$_SERVICE_NAME'
+      - '--image=gcr.io/$PROJECT_ID/$_SERVICE_NAME'
+      - '--platform=managed'
+      - '--region=us-central1'
+      - '--port=3000'
+    # Uncomment the following line if you want to deploy directly from the source without using an intermediate Docker image
+    # - '--source=.'
+    # Uncomment the following line if you are using an intermediate Docker image
+    # - '--source=gcr.io/$PROJECT_ID/$_SERVICE_NAME'
 
 substitutions:
   _SERVICE_NAME: Calculator
