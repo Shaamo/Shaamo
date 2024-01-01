@@ -1,9 +1,10 @@
 #pack build --builder=gcr.io/buildpacks/builder IMAGE_NAME
 steps:
-  - name: 'gcr.io/buildpacks/builder'
+  - name: 'gcr.io/k8s-skaffold/pack'
     args:
       - 'pack'
       - 'build'
+      - '--builder gcr.io/buildpacks/builder:latest'
       - '$_SERVICE_NAME'
   
   - name: 'gcr.io/cloud-builders/gcloud'
