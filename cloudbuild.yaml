@@ -1,12 +1,13 @@
 #pack build --builder=gcr.io/buildpacks/builder IMAGE_NAME
 steps:
-  - name: 'gcr.io/k8s-skaffold/pack'
-    entrypoint: pack
-    args:
-      - 'build'
-      - '$_SERVICE_NAME'
-      - 'builder'
-      - 'gcr.io/buildpacks/builder:latest'
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']  # Install dependencies
+
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['test']  # Run tests
+
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'build']  # Build your application
   
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
