@@ -1,6 +1,7 @@
 #pack build --builder=gcr.io/buildpacks/builder IMAGE_NAME
 steps:
   - name: 'gcr.io/k8s-skaffold/pack'
+    entrypoint: pack
     args:
       - 'pack'
       - 'build'
