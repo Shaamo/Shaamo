@@ -9,7 +9,7 @@ steps:
   #     - '--tag=gcr.io/$PROJECT_ID/$_SERVICE_NAME'
   #     - '.'
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['run', 'deploy', '$_SERVICE_NAME', '--source', '.', '--region', 'us-central1','--port','3000',fi'--platform', 'managed']
+    args: ['run', 'deploy', '$_SERVICE_NAME', '--source', '.', '--region', 'us-central1','--port','3000','--platform', 'managed']
     # args: ['run', 'deploy', '$_SERVICE_NAME', '--image', 'gcr.io/$PROJECT_ID/$_SERVICE_NAME', '--region', 'us-central1', '--platform', 'managed']
 
 substitutions:
