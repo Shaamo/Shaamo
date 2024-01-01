@@ -17,6 +17,6 @@ steps:
       '--port', '3000',
       '--platform', 'managed',
       '--region', 'us-central1',
-    ]
+    
 
 timeout: '600s'
