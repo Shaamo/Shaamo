@@ -1,7 +1,6 @@
 steps:
-  - name: 'gcr.io/buildpacks/gcp/run'
+  - name: 'gcr.io/buildpacks/builder'
     args:
-      - 'pack'
       - 'build'
       - '--builder=gcr.io/buildpacks/builder'
       - '--path=.'
