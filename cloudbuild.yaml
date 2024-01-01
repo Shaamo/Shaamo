@@ -5,7 +5,8 @@ steps:
     args:
       - 'build'
       - '$_SERVICE_NAME'
-      - '--builder gcr.io/buildpacks/builder:latest'
+      - 'builder'
+      - 'gcr.io/buildpacks/builder:latest'
   
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
