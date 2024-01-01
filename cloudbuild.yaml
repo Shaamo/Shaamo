@@ -5,8 +5,22 @@ steps:
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'build']
 
-  - name: 'gcr.io/buildpacks/builder:v1'
-    args: ['build', '-o', 'image.tar', '--path', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/$_SERVICE_NAME'
+      - '-f'
+      - '-'
+    dir: '.'  # Set the working directory for the Docker build
+    entrypoint: 'bash'  # Use bash as the entrypoint for inline commands
+    env:
+      - 'PROJECT_ID=$PROJECT_ID'
+      - 'SERVICE_NAME=$_SERVICE_NAME'
+    # Inline Docker commands
+    script: |
+      docker build -t $PROJECT_ID/$SERVICE_NAME .
+      docker tag $PROJECT_ID/$SERVICE_NAME gcr.io/$PROJECT_ID/$SERVICE_NAME
 
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
